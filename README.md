@@ -22,14 +22,18 @@ CSV lleva BOM UTF-8, delimitador punto y coma y protección frente a fórmulas. 
 
 La sincronización agrupa las lecturas por archivo. Si falla uno, conserva su copia anterior, muestra el error y permite actualizar los demás. La fecha del panel representa la copia más antigua de los archivos; cada archivo tiene su fecha individual en Fuentes. La conexión de Google se ha verificado solo mediante el conector del chat. La autenticación permanente de la app sigue sin configurar ni probar contra Google; las pruebas de resiliencia usan respuestas simuladas.
 
-## Versión web privada en Google
+## Publicación en GitHub Pages
 
-El repositorio privado de código es https://github.com/antonio8aranda98-lang/players-bd. Los datos importados, capturas y credenciales quedan fuera del repositorio.
+El código está en https://github.com/antonio8aranda98-lang/players-bd. La aplicación web se prepara en `docs/` y se publica desde la rama `main`, carpeta `/docs`, usando GitHub Pages. Los archivos `docs/index.html` y `docs/.nojekyll` son el sitio; no requieren un servidor Node.
 
-La versión web utiliza Google Apps Script y no necesita una cuenta de servicio ni guardar claves de Google en GitHub. El manifiesto limita la ejecución al propietario y los permisos a lectura de Sheets e identificación de la cuenta. La aplicación admite únicamente `antonio8aranda98@gmail.com` y los cinco archivos declarados en `lib/sources.mjs`.
+El alojamiento elegido es GitHub Pages. Google se utiliza únicamente para autorizar la lectura de los cinco Sheets. El sitio y los archivos de código no contienen contactos, la copia local ni credenciales privadas.
 
-`npm run build:google` genera los tres archivos de `apps-script/` a partir del mismo modelo, filtros, exportaciones y esquema utilizados por la versión local. No incorpora la copia de datos. El editor del proyecto es https://script.google.com/home/projects/1YCE5QRPKXTckuSFt1cEaL5e9i4ekzW5D-esHP61ffOuUpcLPBLzahHki/edit.
+En la cuenta actual GitHub muestra «Upgrade or make this repository public to enable Pages». Pages todavía NO está activado. El repositorio se mantiene privado hasta que el propietario decida hacerlo público o usar un plan compatible con Pages en repositorios privados.
 
-La web consulta Google al abrirse y cada cinco minutos mientras está visible. Las lecturas se realizan con `google.script.run`, una por archivo. Si falla una lectura durante una sesión, se conserva su lectura anterior en la memoria de esa pestaña. No hay sincronización de datos hacia GitHub ni se guardan contactos en el almacenamiento del navegador.
+### Conexión de las hojas desde Pages
 
-El despliegue y la primera lectura real requieren completar la autorización de Google en el navegador. Una prueba local o simulada no confirma la concesión de ese permiso ni la lectura alojada.
+Hace falta un cliente OAuth web de Google con Google Sheets API activada y el origen `https://antonio8aranda98-lang.github.io` autorizado. Solo se utiliza su identificador público; no se utiliza ni publica un secreto de cliente. Compilar con `PLAYERS_GOOGLE_CLIENT_ID=identificador_publico npm run build:pages` y guardar el resultado de `docs/` en el repositorio.
+
+Al abrir la web se pulsa «Conectar con Google». El token de acceso y los registros permanecen en la memoria de esa pestaña. No se guardan en GitHub, localStorage ni sessionStorage. Las consultas se actualizan cada cinco minutos con la pestaña visible, mientras el token de Google siga vigente; al caducar hay que reconectar. Las cinco hojas permanecen restringidas en Google y no necesitan publicarse.
+
+La primera autorización, la lectura real desde el dominio de GitHub Pages y la publicación siguen pendientes. El paquete está preparado y probado con respuestas simuladas; eso no confirma la conexión de Google en producción.

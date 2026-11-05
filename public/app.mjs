@@ -77,9 +77,11 @@ async function loadData(){
   if(loading)return;loading=true;
   try{const next=await getAppData();
     const initial=data.sources.length===0;data=next;if(initial)selectedSources=new Set(data.sources.filter(s=>s.primary).map(s=>s.id));
+    const connectionPanel=document.getElementById('google-connection');if(connectionPanel)connectionPanel.hidden=!data.connectionRequired;
     const stamp=data.fetchedAt?new Intl.DateTimeFormat('es-ES',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Madrid'}).format(new Date(data.fetchedAt)):'Sin importar datos';
     $('#data-banner').classList.toggle('error',Boolean(data.lastError));
     $('#data-banner').innerHTML=`<span class="status-dot${data.connected&&!data.lastError?' live':''}"></span><span>${data.connected?'Google Sheets · consulta automática cada 5 min con la app abierta':'Copia local de Google Sheets · sincronización automática pendiente'} · ${esc(stamp)}</span>${!data.connected?'<a href="/guia" target="_blank" rel="noopener">Configurar conexión ↗</a>':''}${data.lastError?`<span>· ${esc(data.lastError)}</span>`:''}`;
+    if(data.connectionRequired)$('#data-banner').textContent=data.lastError||'Conecta Google para consultar tus jugadores.';
     rebuildBase();
   }catch(e){$('#data-banner').classList.add('error');$('#data-banner').textContent=e.message+' Los datos ya cargados se conservan.';}
   finally{loading=false;}

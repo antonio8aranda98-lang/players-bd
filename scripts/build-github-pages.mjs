@@ -1,0 +1,15 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const strip=code=>code.replace(/^import .*;\n/gm,'').replace(/^export /gm,'');
+const read=file=>readFile(path.join(root,file),'utf8');
+const [model,sources,exports,app,css,html,transport]=await Promise.all(['public/model.mjs','lib/sources.mjs','public/export.mjs','public/app.mjs','public/style.css','public/index.html','scripts/pages-transport.js'].map(read));
+const clientId=process.env.PLAYERS_GOOGLE_CLIENT_ID||'';
+const client=`(async function(){\nconst GOOGLE_CLIENT_ID=${JSON.stringify(clientId)};\n${strip(model)}\n${strip(sources)}\n${strip(exports)}\n${transport}\n${strip(app)}\n})().catch(function(error){document.getElementById('data-banner').textContent='No se puede iniciar Players BD: '+error.message;});`;
+const connection=`<section id="google-connection" class="search-card" style="margin-top:12px;margin-bottom:24px"><div class="eyebrow">TU CONEXIÓN PRIVADA</div><h2>Conecta tus Google Sheets</h2><p>Google autoriza la lectura de tus hojas. Los registros se consultan en tu navegador y no se guardan en GitHub.</p><button id="connect-google" class="button dark" style="margin-top:18px">Conectar con Google</button><p id="connection-help" class="muted" style="margin-top:12px"></p></section>`;
+let index=html.replace('<link rel="stylesheet" href="/style.css">',`<style>${css}</style>`).replace('<script type="module" src="/app.mjs"></script>','<script src="https://accounts.google.com/gsi/client" async defer></script>').replace('<section id="overview"',connection+'<section id="overview"').replaceAll('href="/guia"','href="#sources"').replaceAll('href="/"','href="#"').replace('Solo en este Mac','Datos en tu cuenta de Google').replace('Tu espacio privado','Tu base de jugadores').replace('Cargando tu base de jugadores…','Conecta Google para consultar tus jugadores.').replace('</body>',`<script>${client.replaceAll('</script','<\\/script')}</script></body>`);
+await mkdir(path.join(root,'docs'),{recursive:true});
+await writeFile(path.join(root,'docs/index.html'),index);
+await writeFile(path.join(root,'docs/.nojekyll'),'');
+process.stdout.write('GitHub Pages generado en docs/. Datos de jugadores: no incluidos.\n');

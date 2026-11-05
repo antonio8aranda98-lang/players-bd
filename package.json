@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "start": "node server.mjs", "test": "node --test", "build:google": "node scripts/build-apps-script.mjs" },
+  "scripts": { "start": "node server.mjs", "test": "node --test", "build:pages": "node scripts/build-github-pages.mjs" },
   "engines": { "node": ">=22" }
 }

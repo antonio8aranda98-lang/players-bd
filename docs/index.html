@@ -5,19 +5,19 @@
 @media(max-width:900px){.sidebar{width:76px;padding:28px 12px}.brand>span:last-child,.nav-caption,.nav-item .nav-arrow,.sidebar-note,.sidebar-bottom{display:none}.brand{justify-content:center}.nav-item{font-size:0;justify-content:center;padding:13px 0}.nav-item>span:first-child{font-size:23px}.sidebar nav{margin-top:45px}main{margin-left:76px;padding:0 22px}.geography-grid{grid-template-columns:1.2fr 1fr}.stats-grid{grid-template-columns:1fr 1fr}.stat-card{min-height:125px}.filter-grid{grid-template-columns:repeat(3,1fr)}#toast{left:calc(50% + 38px)}.map-footer{flex-wrap:wrap}.header-actions .button{padding:8px 10px}}
 @media(max-width:650px){.sidebar{position:static;width:100%;height:66px;padding:12px 16px;flex-direction:row;justify-content:space-between;align-items:center}.brand>span:last-child{display:block;font-size:21px}.brand-bd{display:none}.brand-mark{height:33px;width:32px;font-size:29px}.brand-mark>span{font-size:20px;line-height:23px}.sidebar nav{margin:0;display:flex;gap:9px}.nav-item{margin:0;width:42px;height:37px;padding:0}.nav-item>span:first-child{font-size:22px}.sidebar .brand{gap:8px}main{margin-left:0;padding:0 17px}.topbar{height:62px}.breadcrumb{font-size:10px}.breadcrumb span{margin:0 8px}.header-actions{gap:3px}.header-actions .button{font-size:9px;padding:7px 9px;min-height:30px}.page-heading{margin:16px 0 23px;align-items:flex-start;flex-direction:column;gap:16px}.page-heading>.button{display:none}h1{font-size:30px}.eyebrow{font-size:8px}.page-heading p{font-size:11px}.stats-grid{gap:10px;margin-bottom:18px}.stat-card{padding:17px 15px;min-height:126px}.stat-number{font-size:30px}.stat-icon{font-size:14px;right:13px}.stat-foot{font-size:9px}.geography-grid{grid-template-columns:1fr;gap:17px}.map-card,.regions-card{padding:20px}.map{height:280px}.regions-card .geo-row{margin-top:16px}.map-footer{font-size:8px}.search-card{padding:22px 20px}.quick-filters{grid-template-columns:1fr}.quick-filters .button{margin-top:5px}.search-card h2{font-size:21px}.app-footer{font-size:8px;flex-direction:column;gap:12px;margin-top:28px}.filter-grid{grid-template-columns:1fr 1fr;gap:13px}.filters-card{padding:16px}.keyboard-hint{display:none}.search-field input{font-size:11px}.results-header{padding:19px 16px;align-items:flex-start;flex-direction:column}.results-header .muted{font-size:9px}.table-bottom{padding:15px 16px;gap:10px;font-size:9px}th:first-child,td:first-child{padding-left:16px}#toast{left:50%;width:calc(100% - 34px);font-size:11px}.profile-hero{padding:25px}.profile-body{padding:24px}.profile-hero h2{font-size:23px}.data-banner{font-size:9px;line-height:1.7;min-height:43px}.export-actions .button{font-size:11px}.filter-footer .text-button{font-size:9px}}
 .source-group{margin-top:23px}.source-group h3{font-size:13px;font-weight:600;line-height:1.5}.source-stamp{font-size:9px;color:#9ba4a9;margin:5px 0 4px}.source-option label{line-height:1.5;min-width:0}.source-option input{flex-shrink:0}.source-option>span{flex-shrink:0}#sources-dialog{max-height:88vh;overflow:auto}.source-option small{line-height:1.6}.profile-hero .eyebrow{line-height:1.8;overflow-wrap:anywhere}
-</style></head>
+</style><script src="https://accounts.google.com/gsi/client" async defer></script></head>
 <body>
 <aside class="sidebar">
   <a class="brand" href="#" aria-label="Players BD, inicio"><span class="brand-mark">p<span>·</span></span><span>players<span class="brand-bd">BD / PRIVATE DATABASE</span></span></a>
   <div class="nav-caption">TU BASE DE JUGADORES</div>
   <nav aria-label="Principal"><button class="nav-item active" data-view="overview"><span>◫</span> Resumen <span class="nav-arrow">↗</span></button><button class="nav-item" data-view="players"><span>☷</span> Explorar jugadores</button></nav>
   <div class="sidebar-note"><span class="small-dot"></span> Un lugar. Todos tus perfiles.<p>Encuentra al jugador que necesitas combinando sus datos.</p></div>
-  <div class="sidebar-bottom"><span class="avatar">A</span><div>Tu espacio en Google<small>Solo tu cuenta de Google</small></div><span class="lock">⌑</span></div>
+  <div class="sidebar-bottom"><span class="avatar">A</span><div>Tu base de jugadores<small>Datos en tu cuenta de Google</small></div><span class="lock">⌑</span></div>
 </aside>
 <main>
   <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Resumen</strong></div><div class="header-actions"><button id="sources-button" class="button quiet">◉ <span id="source-count">Fuentes</span></button><button id="refresh" class="button">↻ Actualizar datos</button></div></header>
-  <div id="data-banner" class="data-banner" role="status">Consultando tus cinco archivos de Google Sheets…</div>
-  <section id="overview" class="view">
+  <div id="data-banner" class="data-banner" role="status">Conecta Google para consultar tus jugadores.</div>
+  <section id="google-connection" class="search-card" style="margin-top:12px;margin-bottom:24px"><div class="eyebrow">TU CONEXIÓN PRIVADA</div><h2>Conecta tus Google Sheets</h2><p>Google autoriza la lectura de tus hojas. Los registros se consultan en tu navegador y no se guardan en GitHub.</p><button id="connect-google" class="button dark" style="margin-top:18px">Conectar con Google</button><p id="connection-help" class="muted" style="margin-top:12px"></p></section><section id="overview" class="view">
     <div class="page-heading"><div><div class="eyebrow">PLAYER INTELLIGENCE / UNITED</div><h1>Tu base, de un vistazo<span>.</span></h1><p>Explora el talento. Encuentra el perfil que buscas.</p></div><button class="button dark" data-view="players">Explorar jugadores <span>↗</span></button></div>
     <div id="stats" class="stats-grid"></div>
     <div class="geography-grid">
@@ -39,8 +39,7 @@
 <dialog id="sources-dialog"><div class="dialog-heading"><div><div class="eyebrow">ORIGEN DE LOS DATOS</div><h2>Elige tus fuentes</h2></div><button data-close="sources-dialog" class="close-button" aria-label="Cerrar fuentes">×</button></div><p class="muted">Los filtros, los totales y las exportaciones utilizan estas pestañas.</p><div id="source-options"></div><div class="source-note">Las listas complementarias se incluyen solo si las seleccionas. No se fusionan ni eliminan coincidencias entre formularios.</div><button data-close="sources-dialog" class="button dark full">Aplicar selección</button></dialog>
 <div id="toast" role="status" hidden></div>
 <script>(async function(){
-const HOSTED_BOOKS=[{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","title":"Inscripciones eventos united"},{"id":"1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s","title":"Costa Blanca Cup Form"},{"id":"1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI","title":"SuperDrafts"},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","title":"Tryouts a lo bestia"},{"id":"1N2CwDbuBenI45pN2tzEe7_0lnd7GozHvj8DkKHzw32s","title":"Formulario United Sports Agency"}];
-const HOSTED_SOURCES=[{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:1807665592","name":"Inscripcion pruebas united","label":"Inscripciones eventos united · Inscripcion pruebas united","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":1807665592,"primary":true},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:1422052653","name":"No inscritos otras pruebas","label":"Inscripciones eventos united · No inscritos otras pruebas","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":1422052653,"primary":true},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:808734237","name":"Tryouts a lo bestia","label":"Inscripciones eventos united · Tryouts a lo bestia","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":808734237,"primary":true},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:1919843992","name":"Uptopro forms","label":"Inscripciones eventos united · Uptopro forms","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":1919843992,"primary":true},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:304095844","name":"Formularios varios","label":"Inscripciones eventos united · Formularios varios","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":304095844,"primary":true},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:0","name":"APUNTADOS","label":"Inscripciones eventos united · APUNTADOS","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":0,"primary":false},{"id":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I:456542093","name":"2009 united","label":"Inscripciones eventos united · 2009 united","workbook":"Inscripciones eventos united","spreadsheetId":"1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I","gid":456542093,"primary":false},{"id":"1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s:1023344723","name":"Marina Baixa Cup","label":"Costa Blanca Cup Form · Marina Baixa Cup","workbook":"Costa Blanca Cup Form","spreadsheetId":"1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s","gid":1023344723,"primary":true},{"id":"1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s:0","name":"Hoja 1","label":"Costa Blanca Cup Form · Hoja 1","workbook":"Costa Blanca Cup Form","spreadsheetId":"1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s","gid":0,"primary":false,"note":"Selección complementaria sin encabezados."},{"id":"1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI:861794478","name":"Super Drafts","label":"SuperDrafts · Super Drafts","workbook":"SuperDrafts","spreadsheetId":"1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI","gid":861794478,"primary":true},{"id":"1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI:0","name":"Hoja 1","label":"SuperDrafts · Hoja 1","workbook":"SuperDrafts","spreadsheetId":"1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI","gid":0,"primary":false,"note":"Pestaña vacía al revisar; requiere revisar columnas si se añaden datos."},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0:1285555291","name":"Tryouts a lo bestia","label":"Tryouts a lo bestia","workbook":"Tryouts a lo bestia","spreadsheetId":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","gid":1285555291,"primary":true},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0:1276391815","name":"BARCELONA ANTIGUOS","label":"Tryouts a lo bestia · BARCELONA ANTIGUOS","workbook":"Tryouts a lo bestia","spreadsheetId":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","gid":1276391815,"primary":false,"note":"Lista histórica. La ubicación se toma solo de las filas que la declaran; el nombre de la pestaña no se usa como domicilio."},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0:1941218542","name":"ALICANTE ANTIGUOS","label":"Tryouts a lo bestia · ALICANTE ANTIGUOS","workbook":"Tryouts a lo bestia","spreadsheetId":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","gid":1941218542,"primary":false,"note":"Lista histórica. La ubicación se toma solo de las filas que la declaran; el nombre de la pestaña no se usa como domicilio."},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0:1035575527","name":"VALENCIA ANTIGUOS","label":"Tryouts a lo bestia · VALENCIA ANTIGUOS","workbook":"Tryouts a lo bestia","spreadsheetId":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","gid":1035575527,"primary":false,"note":"Lista histórica. La ubicación se toma solo de las filas que la declaran; el nombre de la pestaña no se usa como domicilio."},{"id":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0:0","name":"MADRID ANTIGUOS","label":"Tryouts a lo bestia · MADRID ANTIGUOS","workbook":"Tryouts a lo bestia","spreadsheetId":"1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0","gid":0,"primary":false,"note":"Lista histórica. La ubicación se toma solo de las filas que la declaran; el nombre de la pestaña no se usa como domicilio."},{"id":"1N2CwDbuBenI45pN2tzEe7_0lnd7GozHvj8DkKHzw32s:207523317","name":"Formulario United Sports Agency","label":"Formulario United Sports Agency","workbook":"Formulario United Sports Agency","spreadsheetId":"1N2CwDbuBenI45pN2tzEe7_0lnd7GozHvj8DkKHzw32s","gid":207523317,"primary":true}];
+const GOOGLE_CLIENT_ID="";
 const clean = value => String(value ?? '').trim().replace(/\s+/g, ' ');
 const fold = value => clean(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const REGIONS = [
@@ -109,6 +108,105 @@ function matches(p, filters={}) {
 }
 const filteredPlayers = (players,filters) => players.filter(p=>matches(p,filters));
 
+const SPREADSHEET_ID = '1dPT5ibJ5lUCQXua46iY_8nxbk8AVti88Y0dinezUT_I';
+const ORIGINAL_SOURCES = [
+  {name:'Inscripcion pruebas united',gid:1807665592,lastColumn:'AD',skip:1,primary:true},
+  {name:'No inscritos otras pruebas',gid:1422052653,lastColumn:'AA',skip:0,primary:true},
+  {name:'Tryouts a lo bestia',gid:808734237,lastColumn:'I',skip:0,primary:true},
+  {name:'Uptopro forms',gid:1919843992,lastColumn:'H',skip:0,primary:true},
+  {name:'Formularios varios',gid:304095844,lastColumn:'H',skip:0,primary:true},
+  {name:'APUNTADOS',gid:0,lastColumn:'K',skip:4,primary:false},
+  {name:'2009 united',gid:456542093,lastColumn:'C',skip:0,primary:false}
+];
+const BOOKS = [
+  {id:SPREADSHEET_ID,title:'Inscripciones eventos united'},
+  {id:'1LGiFO1k1jQV7JUsIMypOxCnjs6xD6VPyvFZSkFJLA8s',title:'Costa Blanca Cup Form'},
+  {id:'1LgolSSjt0Pk5apRU0TsLTetBRjtV7umqs6yvwrPkYwI',title:'SuperDrafts'},
+  {id:'1MzcsnEgTbEwkDxbie60piL4Iuw6uH602UelJz_vPsR0',title:'Tryouts a lo bestia'},
+  {id:'1N2CwDbuBenI45pN2tzEe7_0lnd7GozHvj8DkKHzw32s',title:'Formulario United Sports Agency'}
+];
+const addedSources = [
+  {book:1,name:'Marina Baixa Cup',gid:1023344723,lastColumn:'AV',skip:1,primary:true,layout:'headers'},
+  {book:1,name:'Hoja 1',gid:0,lastColumn:'X',skip:5,primary:false,layout:'marina-copy',note:'Selección complementaria sin encabezados.'},
+  {book:2,name:'Super Drafts',gid:861794478,lastColumn:'AW',skip:1,primary:true,layout:'headers'},
+  {book:2,name:'Hoja 1',gid:0,lastColumn:'Z',skip:0,primary:false,layout:'empty',note:'Pestaña vacía al revisar; requiere revisar columnas si se añaden datos.'},
+  {book:3,name:'Tryouts a lo bestia',gid:1285555291,lastColumn:'BH',skip:1,primary:true,layout:'headers'},
+  ...[['BARCELONA ANTIGUOS',1276391815],['ALICANTE ANTIGUOS',1941218542],['VALENCIA ANTIGUOS',1035575527],['MADRID ANTIGUOS',0]].map(([name,gid])=>({book:3,name,gid,lastColumn:'Z',skip:0,primary:false,layout:'history',note:'Lista histórica. La ubicación se toma solo de las filas que la declaran; el nombre de la pestaña no se usa como domicilio.'})),
+  {book:4,name:'Formulario United Sports Agency',gid:207523317,lastColumn:'BD',skip:1,primary:true,layout:'headers'}
+];
+const SOURCES = [...ORIGINAL_SOURCES.map(s=>({...s,book:0})),...addedSources].map(s=>{
+  const book=BOOKS[s.book];return {...s,id:`${book.id}:${s.gid}`,spreadsheetId:book.id,workbook:book.title,label:book.title===s.name?book.title:`${book.title} · ${s.name}`};
+});
+const datasetKey = source => source.id;
+const pick=(r,...indexes)=>indexes.map(i=>clean(r[i])).filter(Boolean).join(' / ');
+const unique=values=>[...new Set(values.filter(Boolean))];
+function positionValues(value) {return unique(clean(value).replace(/portero\/a/gi,'Portero').split(/[,;/]+/).map(position).filter(Boolean));}
+function main(r) {return {name:pick(r,0,1),phone:r[2],email:r[3],location:r[6],province:r[7],birth:clean(r[21])||r[10],yearGroup:r[10],studies:pick(r,11,12),category:pick(r,13,14),league:pick(r,15,16),budget:pick(r,18,19),position:r[22],community:r[23],country:r[26],club:r[27],submitted:r[28]};}
+function fromHeaders(rows) {
+  const headers=(rows[0]||[]).map(h=>fold(h).replace(/[¿?(),.]/g,'').trim());
+  const indexes=regex=>headers.flatMap((h,i)=>regex.test(h)?[i]:[]);
+  const fields={first:indexes(/^(nombre|first name)$/),last:indexes(/^apellido|^last name$/),full:indexes(/nombre completo/),phone:indexes(/numero de telefono|^phone number$/),email:indexes(/correo electronico|^email$/),birth:indexes(/fecha de nacimiento/),location:indexes(/^ciudad\/|^city\/town$/),province:indexes(/^estado\/region\/provincia$|^state\/region\/province$/),community:indexes(/selecciona tu comunidad autonoma/),country:indexes(/pais de residencia/),club:indexes(/^nombre de tu club actual$/),category:indexes(/en que categoria juegas/),league:indexes(/que liga juegas/),position:indexes(/en que posicion juegas/),studies:indexes(/que estudias actualmente/),submitted:indexes(/^submitted at$/)};
+  if(!fields.first.length&&!fields.full.length)throw new Error('No se reconoce la columna de nombre. Revisa los encabezados antes de actualizar.');
+  return row=>{
+    const values=key=>unique(fields[key].map(i=>clean(row[i])));
+    const first=key=>values(key)[0]||'';
+    return {name:first('full')||[first('first'),first('last')].filter(Boolean).join(' '),phone:first('phone'),email:first('email'),birth:first('birth'),location:first('location'),province:first('province'),community:first('community'),country:first('country'),club:values('club').join(' / '),category:values('category').join(' / '),league:values('league').join(' / '),position:values('position').join(' / '),studies:values('studies').join(' / '),studyValues:unique(values('studies').map(studies)),submitted:first('submitted')};
+  };
+}
+function historyRow(r){
+  return r.length>7?{name:pick(r,0,1),phone:r[2],email:r[3],birth:r[4],location:r[7],province:r[8],country:r[10],club:r[11],category:r[12],league:r[13],position:r[14]}:{name:pick(r,0,1),phone:r[2],category:r[3],league:r[4],position:r[5],club:r[6]};
+}
+function normalizeSource(source, rows) {
+  if(source.layout==='empty'){
+    if(rows.some(r=>r.some(v=>clean(v))))throw new Error(`La pestaña ${source.name} antes vacía contiene datos. Revisa sus columnas para incorporarlos.`);
+    return [];
+  }
+  const headerReader=source.layout==='headers'?fromHeaders(rows):null;
+  const result=[];
+  for(let index=source.skip;index<rows.length;index++) {
+    const r=rows[index];if(!r?.some(v=>clean(v))) continue;
+    let p;
+    if(headerReader){
+      // A block pasted from a different form has its birth date in K, not E.
+      // Detect the structure from the cells rather than hard-coding row numbers.
+      if(source.spreadsheetId===BOOKS[3].id&&source.name==='Tryouts a lo bestia'&&birthYear(r[10])&&!birthYear(r[4])&&['si','no'].includes(fold(r[11])))
+        p={name:pick(r,0,1),phone:r[2],email:r[3],birth:r[10],location:r[6],province:r[7],country:r[9],category:r[13],league:r[14],position:r[12],studies:r[16],budget:r[33]};
+      else p=headerReader(r);
+    }
+    else if(source.layout==='history')p=historyRow(r);
+    else if(source.layout==='marina-copy')p={name:pick(r,1,2),phone:r[3],email:r[4],birth:r[5],country:r[7],location:r[10],province:r[11],community:r[14],club:r[15],category:r[16],league:r[17],position:r[18],studies:r[19],submitted:r[20]};
+    else switch(source.name) {
+      case 'Inscripcion pruebas united':p=main(r);break;
+      case 'No inscritos otras pruebas':
+        p=['si','no','sí'].includes(fold(r[4]))?{name:pick(r,0,1),phone:r[2],email:r[3],location:r[13],province:r[14],birth:r[17],yearGroup:r[17],studies:pick(r,18,19),category:pick(r,20,21),league:pick(r,22,23),budget:pick(r,25,26)}:main(r);break;
+      case 'APUNTADOS':p={name:pick(r,2,3),location:r[4],studies:r[5],category:r[6],league:r[7],budget:r[8],birth:r[9],position:r[10]};break;
+      case '2009 united':p={name:r[0],phone:r[1]||r[2]};break;
+      case 'Tryouts a lo bestia':p={name:pick(r,0,1),phone:r[2],email:r[3],birth:r[4],location:r[5],category:r[6],league:r[7],position:r[8]};break;
+      case 'Uptopro forms':p={name:pick(r,0,1),phone:r[2],email:r[3],location:r[4],category:r[5],league:r[6],studies:r[7]};break;
+      case 'Formularios varios':p={name:pick(r,0,1),phone:r[2],email:r[3],birth:r[4],location:r[5],category:r[6],league:r[7]};break;
+      default:throw new Error('Origen sin correspondencia de columnas');
+    }
+    const explicitStudyValues=p.studyValues;
+    p=Object.fromEntries(Object.entries(p).filter(([key])=>key!=='studyValues').map(([key,val])=>[key,clean(val)]));
+    if(!p.name || /^(nombre|nombre apellidos|total|porteros)$/i.test(p.name)) continue;
+    p.name=p.name.replaceAll(' / ',' ');p.phone=clean(p.phone).replace(/^'/,'');
+    const raw={location:p.location||'',province:p.province||'',community:p.community||'',studies:p.studies||'',position:p.position||'',category:p.category||''};
+    const geo=geography(p.location,p.province,p.community);
+    p={...p,...geo,studies:studies(p.studies),position:position(p.position),year:birthYear(p.birth),category:clean(p.category)?clean(p.category).charAt(0).toUpperCase()+clean(p.category).slice(1).toLowerCase():''};
+    const positions=positionValues(raw.position);
+    result.push({...p,position:positions.join(' / '),positions,studyValues:explicitStudyValues||unique(clean(raw.studies).split(' / ').map(studies)),raw,id:`${source.id}:${index+1}`,sourceId:source.id,source:source.label,spreadsheetId:source.spreadsheetId,workbook:source.workbook,tab:source.name,row:index+1,gid:source.gid,primary:source.primary});
+  }
+  return result;
+}
+function normalizeDatasets(datasets) {return SOURCES.flatMap(s=>normalizeSource(s,datasets[datasetKey(s)]||[]));}
+function upgradePlayer(player) {
+  if(player.sourceId)return player;
+  const source=SOURCES.find(s=>s.spreadsheetId===SPREADSHEET_ID&&s.gid===player.gid);
+  if(!source)throw new Error('Origen de la copia anterior no reconocido.');
+  const positions=positionValues(player.raw?.position||player.position);
+  return {...player,id:`${source.id}:${player.row}`,sourceId:source.id,source:source.label,spreadsheetId:source.spreadsheetId,workbook:source.workbook,tab:source.name,positions,position:positions.join(' / '),studyValues:unique(clean(player.raw?.studies||player.studies).split(' / ').map(studies))};
+}
+
 const EXPORT_COLUMNS=[['name','Nombre'],['phone','Teléfono'],['email','Email'],['location','Localidad / ubicación original'],['province','Provincia'],['community','Comunidad autónoma'],['birth','Nacimiento / respuesta original'],['year','Año de nacimiento exacto'],['studies','Estudios'],['position','Posición'],['category','Categoría'],['league','Liga'],['budget','Presupuesto declarado'],['club','Club'],['source','Origen'],['row','Fila de origen'],['submitted','Fecha de formulario']];
 function csv(players) {
   const quote=v=>{
@@ -151,32 +249,63 @@ function xlsx(players){
   });
 }
 
-let hostedSnapshot=null,hostedPending=null,hostedReadAt=0;
-function googleBook(book){
-  return new Promise((resolve,reject)=>google.script.run.withSuccessHandler(value=>{
-    try{const result=JSON.parse(value);if(result.spreadsheetId!==book.id||!Array.isArray(result.players)||result.players.some(p=>p.spreadsheetId!==book.id))throw new Error('Google devolvió un origen incorrecto.');resolve(result);}catch(e){reject(e);}
-  }).withFailureHandler(error=>reject(new Error(error.message||'No se puede leer el archivo.'))).getWorkbookData(book.id));
+let pagesToken=null,pagesTokenExpires=0,pagesSnapshot=null,pagesPending=null,pagesReadAt=0;
+const publicSources=SOURCES.map(({id,name,label,workbook,spreadsheetId,gid,primary,note})=>({id,name,label,workbook,spreadsheetId,gid,primary,note}));
+function emptyPagesData(message='Conecta tu cuenta de Google para consultar tus jugadores.'){
+  return {...(pagesSnapshot||{players:[],bookUpdates:{},fetchedAt:null}),books:BOOKS,sources:publicSources,hosted:true,connected:false,connectionRequired:true,lastError:message};
 }
-async function readHosted(){
-  if(hostedPending)return hostedPending;
-  hostedPending=(async()=>{
-    const responses=await Promise.allSettled(HOSTED_BOOKS.map(googleBook));
-    const updated=new Set(),bookUpdates={...(hostedSnapshot?.bookUpdates||{})},players=[],errors=[];
+async function readPagesBook(book){
+  const sources=SOURCES.filter(s=>s.spreadsheetId===book.id);
+  const url=new URL(`https://sheets.googleapis.com/v4/spreadsheets/${book.id}/values:batchGet`);
+  for(const s of sources)url.searchParams.append('ranges',`'${s.name.replaceAll("'","''")}'!A1:${s.lastColumn}`);
+  url.searchParams.set('valueRenderOption','FORMATTED_VALUE');
+  const response=await fetch(url,{headers:{Authorization:`Bearer ${pagesToken}`},cache:'no-store',signal:AbortSignal.timeout(45000)});
+  if(response.status===401){pagesToken=null;throw new Error('La sesión de Google ha caducado. Pulsa Conectar con Google.');}
+  if(!response.ok)throw new Error(response.status===403?'No tienes acceso a este archivo o falta activar Google Sheets API.':'No se puede leer el archivo de Google.');
+  const result=await response.json();
+  if(result.spreadsheetId!==book.id||result.valueRanges?.length!==sources.length)throw new Error('Respuesta incompleta de Google.');
+  return {players:sources.flatMap((s,i)=>normalizeSource(s,result.valueRanges[i].values||[])),fetchedAt:new Date().toISOString()};
+}
+async function readPages(){
+  if(pagesPending)return pagesPending;
+  if(!pagesToken||Date.now()>=pagesTokenExpires)return emptyPagesData(pagesSnapshot?'La sesión de Google ha caducado. Conecta de nuevo para actualizar.':undefined);
+  pagesPending=(async()=>{
+    const responses=await Promise.allSettled(BOOKS.map(readPagesBook)),players=[],updated=new Set(),errors=[],bookUpdates={...(pagesSnapshot?.bookUpdates||{})};
     for(let i=0;i<responses.length;i++){
-      const response=responses[i],book=HOSTED_BOOKS[i];
+      const response=responses[i],book=BOOKS[i];
       if(response.status==='fulfilled'){updated.add(book.id);players.push(...response.value.players);bookUpdates[book.id]={fetchedAt:response.value.fetchedAt,error:null};}
       else{const message=book.title+': '+response.reason.message;errors.push(message);bookUpdates[book.id]={...bookUpdates[book.id],error:message};}
     }
     if(!updated.size)throw new Error(errors.join(' · '));
-    players.push(...(hostedSnapshot?.players||[]).filter(p=>!updated.has(p.spreadsheetId)));
-    const dates=HOSTED_BOOKS.map(b=>bookUpdates[b.id]?.fetchedAt);
-    hostedSnapshot={players,bookUpdates,books:HOSTED_BOOKS,sources:HOSTED_SOURCES,hosted:true,connected:true,fetchedAt:dates.every(Boolean)?dates.sort()[0]:null,lastError:errors.length?'Algunos archivos no se han actualizado. '+errors.join(' · '):''};
-    hostedReadAt=Date.now();return hostedSnapshot;
-  })().finally(()=>{hostedPending=null;});
-  return hostedPending;
+    players.push(...(pagesSnapshot?.players||[]).filter(p=>!updated.has(p.spreadsheetId)));
+    const dates=BOOKS.map(b=>bookUpdates[b.id]?.fetchedAt);
+    pagesSnapshot={players,books:BOOKS,sources:publicSources,bookUpdates,hosted:true,connected:Boolean(pagesToken),connectionRequired:!pagesToken,fetchedAt:dates.every(Boolean)?dates.sort()[0]:null,lastError:errors.join(' · ')};
+    pagesReadAt=Date.now();return pagesSnapshot;
+  })().finally(()=>pagesPending=null);
+  return pagesPending;
 }
-async function getAppData(){if(hostedSnapshot&&Date.now()-hostedReadAt<300000)return hostedSnapshot;return readHosted();}
-async function refreshAppData(){const result=await readHosted();return {ok:true,warning:result.lastError||null};}
+async function getAppData(){
+  if(!pagesToken||Date.now()>=pagesTokenExpires)return emptyPagesData(pagesSnapshot?'La sesión de Google ha caducado. Conecta de nuevo para actualizar.':undefined);
+  if(pagesSnapshot&&Date.now()-pagesReadAt<300000)return pagesSnapshot;
+  return readPages();
+}
+async function refreshAppData(){const result=await readPages();if(result.connectionRequired)throw new Error(result.lastError);return {ok:true,warning:result.lastError};}
+function connectGoogle(){
+  if(!GOOGLE_CLIENT_ID)throw new Error('Falta configurar el identificador OAuth de Google para esta dirección de GitHub Pages. No necesitas publicar tus hojas.');
+  if(!window.google?.accounts?.oauth2)throw new Error('Google aún está cargando. Espera unos segundos y vuelve a pulsar Conectar.');
+  return new Promise((resolve,reject)=>{
+    const client=google.accounts.oauth2.initTokenClient({client_id:GOOGLE_CLIENT_ID,scope:'https://www.googleapis.com/auth/spreadsheets.readonly',callback:response=>{
+      if(response.error){reject(new Error('Google no ha autorizado la lectura.'));return;}
+      pagesToken=response.access_token;pagesTokenExpires=Date.now()+Math.max(0,Number(response.expires_in||3600)-60)*1000;pagesReadAt=0;resolve();
+    },error_callback:()=>reject(new Error('La conexión de Google no se ha completado.'))});
+    client.requestAccessToken({prompt:''});
+  });
+}
+document.getElementById('connection-help').textContent=GOOGLE_CLIENT_ID?'Al abrir la web, conecta tu cuenta. La lectura se actualiza cada cinco minutos mientras la conexión esté vigente.':'La web está preparada. Falta registrar esta URL de GitHub Pages en la conexión de Google.';
+document.getElementById('connect-google').addEventListener('click',async()=>{
+  const button=document.getElementById('connect-google');button.disabled=true;
+  try{await connectGoogle();await loadData();}catch(e){document.getElementById('connection-help').textContent=e.message;}finally{button.disabled=false;}
+});
 
 const $=s=>document.querySelector(s),num=n=>new Intl.NumberFormat('es-ES').format(n),esc=v=>String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 const missing='<span class="missing">Sin informar</span>';
@@ -254,9 +383,11 @@ async function loadData(){
   if(loading)return;loading=true;
   try{const next=await getAppData();
     const initial=data.sources.length===0;data=next;if(initial)selectedSources=new Set(data.sources.filter(s=>s.primary).map(s=>s.id));
+    const connectionPanel=document.getElementById('google-connection');if(connectionPanel)connectionPanel.hidden=!data.connectionRequired;
     const stamp=data.fetchedAt?new Intl.DateTimeFormat('es-ES',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Madrid'}).format(new Date(data.fetchedAt)):'Sin importar datos';
     $('#data-banner').classList.toggle('error',Boolean(data.lastError));
     $('#data-banner').innerHTML=`<span class="status-dot${data.connected&&!data.lastError?' live':''}"></span><span>${data.connected?'Google Sheets · consulta automática cada 5 min con la app abierta':'Copia local de Google Sheets · sincronización automática pendiente'} · ${esc(stamp)}</span>${!data.connected?'<a href="/guia" target="_blank" rel="noopener">Configurar conexión ↗</a>':''}${data.lastError?`<span>· ${esc(data.lastError)}</span>`:''}`;
+    if(data.connectionRequired)$('#data-banner').textContent=data.lastError||'Conecta Google para consultar tus jugadores.';
     rebuildBase();
   }catch(e){$('#data-banner').classList.add('error');$('#data-banner').textContent=e.message+' Los datos ya cargados se conservan.';}
   finally{loading=false;}

@@ -6,3 +6,7 @@ node_modules/
 output/
 .clasp.json
 .clasprc.json
+apps-script/
+scripts/build-apps-script.mjs
+scripts/apps-script-*
+test/apps-script.test.mjs

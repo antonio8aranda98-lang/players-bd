@@ -1,0 +1,8 @@
+.local-data/
+.secrets/
+.env
+node_modules/
+*.log
+output/
+.clasp.json
+.clasprc.json

@@ -8,7 +8,7 @@ let data={players:[],sources:[],connected:false},selectedSources=new Set(),base=
 let toastTimer,searchTimer,loading=false;
 const PAGE_SIZE=50;
 function toast(message){$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,7000);}
-function setView(view){currentView=view;for(const id of ['overview','players'])$('#'+id).hidden=id!==view;document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('#breadcrumb').textContent=view==='overview'?'Resumen':'Explorar jugadores';window.scrollTo({top:0,behavior:'instant'});}
+function setView(view){if(data.connectionRequired&&!data.players.length){toast('Conecta con Google para consultar tus jugadores.');return;}currentView=view;for(const id of ['overview','players'])$('#'+id).hidden=id!==view;document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('#breadcrumb').textContent=view==='overview'?'Resumen':'Explorar jugadores';window.scrollTo({top:0,behavior:'instant'});}
 function options(key,placeholder,selected=''){
   const values=[...new Set(base.flatMap(p=>key==='position'?(p.positions||[p.position]):key==='studies'?(p.studyValues||[p.studies]):[p[key]]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es',{numeric:true,sensitivity:'base'}));
   if(key==='year')values.reverse();
@@ -83,6 +83,7 @@ async function loadData(){
     $('#data-banner').innerHTML=`<span class="status-dot${data.connected&&!data.lastError?' live':''}"></span><span>${data.connected?'Google Sheets · consulta automática cada 5 min con la app abierta':'Copia local de Google Sheets · sincronización automática pendiente'} · ${esc(stamp)}</span>${!data.connected?'<a href="/guia" target="_blank" rel="noopener">Configurar conexión ↗</a>':''}${data.lastError?`<span>· ${esc(data.lastError)}</span>`:''}`;
     if(data.connectionRequired)$('#data-banner').textContent=data.lastError||'Conecta Google para consultar tus jugadores.';
     rebuildBase();
+    for(const id of ['overview','players'])$('#'+id).hidden=(data.connectionRequired&&!data.players.length)||id!==currentView;
   }catch(e){$('#data-banner').classList.add('error');$('#data-banner').textContent=e.message+' Los datos ya cargados se conservan.';}
   finally{loading=false;}
 }

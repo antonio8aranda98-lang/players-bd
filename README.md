@@ -1,39 +1,36 @@
 # Players BD
 
-Buscador privado de registros de jugadores: resumen geográfico, filtros combinables, ficha de jugador y exportaciones completas en CSV y XLSX. Sin estados ni herramientas de CRM.
+Aplicación web para consultar una base de jugadores desde cinco Google Sheets: panel geográfico, filtros combinables, ficha individual y exportación del resultado completo en CSV o XLSX.
 
-## Abrir
+Web: https://antonio8aranda98-lang.github.io/players-bd/
 
-Necesita Node.js 22 o posterior. Ejecutar `npm start` en esta carpeta, o abrir `Abrir Players BD.command`. Visitar http://127.0.0.1:4317. Solo es accesible desde este Mac. Para detenerlo, cerrar el proceso con Ctrl+C.
+Código: https://github.com/antonio8aranda98-lang/players-bd
 
-No requiere instalar paquetes. `npm test` verifica la interpretación de datos, los filtros y las exportaciones.
+## Acceso a los datos
 
-## Datos y conexión
+El código y la interfaz están publicados en GitHub Pages. Los contactos y registros permanecen en Google Sheets y se consultan en la memoria del navegador después de pulsar «Conectar con Google». Las hojas no necesitan publicarse. No se guardan tokens ni registros en GitHub, localStorage ni sessionStorage.
 
-La copia inicial está en `.local-data/cache.json` y está excluida de Git, junto con las credenciales. Los datos personales no se incluyen en archivos de código ni en el navegador antes de pedirlos al servidor local.
+El cliente OAuth es de tipo web y admite el origen `https://antonio8aranda98-lang.github.io`. `public/google-client.json` contiene únicamente su identificador público; no contiene el secreto. Se solicita el permiso `spreadsheets.readonly`. La configuración de Google está en modo de prueba y se limita a la cuenta del propietario.
 
-La conexión permanente NO está configurada. La cuenta de servicio tendrá que ser lectora de los cinco archivos. El acceso del conector de este chat no equivale a credenciales para la aplicación. Visitar `/guia` para configurar una cuenta de servicio de lectura de Google Sheets. No publicar la copia local en un sitio estático. Si más adelante se aloja la aplicación, habrá que añadir autenticación y gestionar las credenciales en el servidor.
+La app lee al abrir la conexión y cada cinco minutos con la pestaña visible. Cuando caduca el token de Google, hay que pulsar de nuevo «Conectar con Google». Si falla una de las cinco lecturas, se conserva su lectura anterior durante esa sesión y se muestra el error.
 
-Los cinco archivos y sus 17 pestañas tienen correspondencias en `lib/sources.mjs`. Las nueve fuentes de entrada se seleccionan por defecto; las ocho listas complementarias se pueden incluir con el selector, una de ellas vacía. Los registros y enlaces de origen se identifican por archivo, pestaña y fila, incluso cuando dos archivos usan el mismo nombre o ID de pestaña. El total cuenta filas, no personas únicas. El esquema de la pestaña «No inscritos otras pruebas» cambia históricamente; se distinguen sus dos formatos. Si cambian las preguntas/columnas de los formularios, revisar las correspondencias.
+Los totales cuentan registros, no personas únicas. Las nueve fuentes de entrada se seleccionan por defecto; las ocho listas complementarias se pueden incluir en Fuentes, una de ellas vacía. Cada registro conserva archivo, pestaña y fila. Las ubicaciones desconocidas no se infieren del título de las listas.
 
-La aplicación no modifica los archivos de Google Sheets. El mapa es esquemático por comunidades, con clasificación conservadora. No se infieren edades a partir de categorías. Las variantes originales se pueden consultar en la ficha. Los teléfonos y correos exportados corresponden al registro; no se mezclan personas. Los encabezados repetidos de los nuevos formularios se leen conjuntamente y las listas históricas distinguen su formato corto del formato completo. Las posiciones múltiples se pueden filtrar por cualquiera de ellas.
+## Desarrollo y publicación
 
-CSV lleva BOM UTF-8, delimitador punto y coma y protección frente a fórmulas. XLSX es un archivo OpenXML real con celdas de texto, encabezado fijo y autofiltro. Se exporta todo el resultado filtrado, sin limitarse a la página visible.
+Se necesita Node.js 22 o posterior; no requiere instalar paquetes.
 
-La sincronización agrupa las lecturas por archivo. Si falla uno, conserva su copia anterior, muestra el error y permite actualizar los demás. La fecha del panel representa la copia más antigua de los archivos; cada archivo tiene su fecha individual en Fuentes. La conexión de Google se ha verificado solo mediante el conector del chat. La autenticación permanente de la app sigue sin configurar ni probar contra Google; las pruebas de resiliencia usan respuestas simuladas.
+- `npm test`: pruebas del modelo, lectura, filtros y exportaciones.
+- `npm run build:pages`: genera `docs/index.html` y `docs/.nojekyll`.
+- GitHub Pages publica la carpeta `/docs` de la rama `main`. Guardar el resultado generado en esa rama activa el despliegue.
+- `PLAYERS_GOOGLE_CLIENT_ID` permite sustituir el identificador público durante la compilación.
 
-## Publicación en GitHub Pages
+Las correspondencias de columnas están en `lib/sources.mjs`. Los formularios con encabezados repetidos y los formatos históricos se adaptan por separado. Si cambia un formulario, revisar sus correspondencias. Las posiciones múltiples se pueden filtrar por cualquiera de ellas.
 
-El código está en https://github.com/antonio8aranda98-lang/players-bd. La aplicación web se prepara en `docs/` y se publica desde la rama `main`, carpeta `/docs`, usando GitHub Pages. Los archivos `docs/index.html` y `docs/.nojekyll` son el sitio; no requieren un servidor Node.
+La exportación CSV utiliza UTF-8 con BOM, punto y coma y protección contra fórmulas. XLSX es OpenXML real, con celdas de texto, encabezado fijo y autofiltro. Se exportan todos los resultados filtrados, no solo la página visible.
 
-El alojamiento elegido es GitHub Pages. Google se utiliza únicamente para autorizar la lectura de los cinco Sheets. El sitio y los archivos de código no contienen contactos, la copia local ni credenciales privadas.
+## Versión local
 
-En la cuenta actual GitHub muestra «Upgrade or make this repository public to enable Pages». Pages todavía NO está activado. El repositorio se mantiene privado hasta que el propietario decida hacerlo público o usar un plan compatible con Pages en repositorios privados.
+`npm start` o `Abrir Players BD.command` inicia la versión local en http://127.0.0.1:4317. Sus datos importados están en `.local-data/cache.json`, excluidos de Git. La versión local admite una cuenta de servicio opcional; la web de Pages utiliza la conexión de Google del navegador.
 
-### Conexión de las hojas desde Pages
-
-Hace falta un cliente OAuth web de Google con Google Sheets API activada y el origen `https://antonio8aranda98-lang.github.io` autorizado. Solo se utiliza su identificador público; no se utiliza ni publica un secreto de cliente. Compilar con `PLAYERS_GOOGLE_CLIENT_ID=identificador_publico npm run build:pages` y guardar el resultado de `docs/` en el repositorio.
-
-Al abrir la web se pulsa «Conectar con Google». El token de acceso y los registros permanecen en la memoria de esa pestaña. No se guardan en GitHub, localStorage ni sessionStorage. Las consultas se actualizan cada cinco minutos con la pestaña visible, mientras el token de Google siga vigente; al caducar hay que reconectar. Las cinco hojas permanecen restringidas en Google y no necesitan publicarse.
-
-La primera autorización, la lectura real desde el dominio de GitHub Pages y la publicación siguen pendientes. El paquete está preparado y probado con respuestas simuladas; eso no confirma la conexión de Google en producción.
+La carpeta `.local-data`, las claves de `.secrets` y las capturas de `output` quedan fuera del repositorio. No incluir copias de los datos ni credenciales privadas al publicar cambios.

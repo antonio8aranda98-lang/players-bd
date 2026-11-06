@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Players BD · Buscador de jugadores</title><meta name="description" content="Tu base privada de jugadores. Explora, filtra y exporta perfiles."><link rel="stylesheet" href="/style.css"><script type="module" src="/app.mjs"></script></head>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Players BD · Scouting y talento</title><meta name="description" content="Tu base de talento. Explora, filtra y encuentra tu próximo jugador."><meta name="theme-color" content="#102A3A"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20261106"><link rel="manifest" href="/app.webmanifest"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css"><script type="module" src="/app.mjs"></script></head>
 <body>
 <aside class="sidebar">
-  <a class="brand" href="/" aria-label="Players BD, inicio"><span class="brand-mark">p<span>·</span></span><span>players<span class="brand-bd">BD / PRIVATE DATABASE</span></span></a>
+  <a class="brand" href="/" aria-label="Players BD, inicio"><img class="brand-symbol" src="/assets/players-mark.svg" width="43" height="43" alt=""><span class="brand-name"><span class="brand-word">players <b>BD</b></span><span class="brand-bd">SCOUTING Y TALENTO</span></span></a>
   <div class="nav-caption">TU BASE DE JUGADORES</div>
   <nav aria-label="Principal"><button class="nav-item active" data-view="overview"><span>◫</span> Resumen <span class="nav-arrow">↗</span></button><button class="nav-item" data-view="players"><span>☷</span> Explorar jugadores</button></nav>
   <div class="sidebar-note"><span class="small-dot"></span> Un lugar. Todos tus perfiles.<p>Encuentra al jugador que necesitas combinando sus datos.</p></div>
@@ -12,7 +12,7 @@
   <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Resumen</strong></div><div class="header-actions"><button id="sources-button" class="button quiet">◉ <span id="source-count">Fuentes</span></button><button id="refresh" class="button">↻ Actualizar datos</button></div></header>
   <div id="data-banner" class="data-banner" role="status">Cargando tu base de jugadores…</div>
   <section id="overview" class="view">
-    <div class="page-heading"><div><div class="eyebrow">PLAYER INTELLIGENCE / UNITED</div><h1>Tu base, de un vistazo<span>.</span></h1><p>Explora el talento. Encuentra el perfil que buscas.</p></div><button class="button dark" data-view="players">Explorar jugadores <span>↗</span></button></div>
+    <div class="page-heading"><div><div class="eyebrow">PLAYERS BD / SCOUTING DESK</div><h1>Tu base, de un vistazo<span>.</span></h1><p>Explora el talento. Encuentra el perfil que buscas.</p></div><button class="button dark" data-view="players">Explorar jugadores <span>↗</span></button></div>
     <div id="stats" class="stats-grid"></div>
     <div class="geography-grid">
       <section class="card map-card"><div class="card-heading"><div><div class="eyebrow">DISTRIBUCIÓN GEOGRÁFICA</div><h2>El talento, en el mapa</h2></div><span class="pill">Comunidades</span></div><p class="muted map-intro">Selecciona una comunidad para explorar sus jugadores.</p><div id="map" class="map"></div><div class="map-footer"><span>Vista esquemática de España</span><span class="scale"><i></i> Menos <i></i><i></i><i></i> Más registros</span></div></section>

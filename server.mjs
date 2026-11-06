@@ -40,7 +40,7 @@ async function refresh(){
   })().catch(e=>{lastError=e.message;throw e;}).finally(()=>{refreshTask=null;});
   return refreshTask;
 }
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.webmanifest':'application/manifest+json; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
   const host=req.headers.host||'';
   if(![`localhost:${PORT}`,`127.0.0.1:${PORT}`].includes(host)){res.writeHead(403);res.end();return;}
@@ -60,7 +60,7 @@ const server=http.createServer(async(req,res)=>{
     }
     if(req.method!=='GET')return json({error:'Método no permitido'},405);
     const filename=pathname==='/'?'index.html':pathname==='/guia'?'guide.html':pathname.slice(1);
-    const allowed=new Set(['index.html','guide.html','style.css','app.mjs','model.mjs','export.mjs','transport.mjs']);
+    const allowed=new Set(['index.html','guide.html','style.css','brand.css','app.mjs','model.mjs','export.mjs','transport.mjs','app.webmanifest','assets/players-mark.svg','assets/players-logo.svg','assets/favicon.svg']);
     if(!allowed.has(filename))return json({error:'No encontrado'},404);
     const data=await readFile(path.join(ROOT,'public',filename));res.writeHead(200,{'Content-Type':mime[path.extname(filename)]||'text/plain'});res.end(data);
   }catch{json({error:'No se puede completar la solicitud. Se conserva la última copia.'},500);}
